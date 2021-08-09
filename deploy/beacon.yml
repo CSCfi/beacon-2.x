@@ -5,8 +5,6 @@ networks:
   beacon-priv:
   idp-priv:
   pub:
-  beacon-network:
-  beacon-network_apps:
   apps:
 
 services:
@@ -26,8 +24,6 @@ services:
       - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
       - beacon-priv
-      - beacon-network
-      - beacon-network_apps
       - apps
 
   beacon:
@@ -46,8 +42,6 @@ services:
     networks:
       - beacon-priv
       - pub
-      - beacon-network
-      - beacon-network_apps
       - apps
     working_dir: '/beacon'
     entrypoint: ['python','-m','beacon']
@@ -103,6 +97,7 @@ services:
     networks:
       - pub
       - idp-priv
+      - apps
     depends_on:
       - idp-db
 
@@ -116,4 +111,5 @@ services:
       - POSTGRES_PASSWORD=secret
     networks:
       - idp-priv
+      - apps
 
