@@ -50,7 +50,7 @@ services:
   # Dummy Permissions server
   ###########################################
   permissions:
-    image: egarchive/beacon:2.0
+    image: localhost:5000/beacon2.0:latest
     hostname: beacon-permissions
     container_name: beacon-permissions
     volumes:
