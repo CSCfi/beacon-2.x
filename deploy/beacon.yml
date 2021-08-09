@@ -2,6 +2,9 @@ version: '3.2'
 
 # Use the default driver (here bridge)
 networks:
+  beacon-priv:
+  idp-priv:
+  pub:
   beacon-network:
   beacon-network_apps:
   apps:
@@ -23,6 +26,7 @@ services:
       - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
       - beacon-priv
+      - beacon-network
 
   beacon:
     build: ..
@@ -40,6 +44,7 @@ services:
     networks:
       - beacon-priv
       - pub
+      - beacon-network
     working_dir: '/beacon'
     entrypoint: ['python','-m','beacon']
     # entrypoint: ['/bin/sleep','100000000']
