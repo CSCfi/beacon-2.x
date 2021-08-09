@@ -28,7 +28,7 @@ services:
 
   beacon:
     build: ..
-    image: localhost:5000/beacon2.0:latest
+    image: localhost:5000/beacon2:latest
     hostname: beacon
     container_name: beacon
     volumes:
@@ -51,7 +51,7 @@ services:
   # Dummy Permissions server
   ###########################################
   permissions:
-    image: localhost:5000/beacon2.0:latest
+    image: localhost:5000/beacon2:latest
     hostname: beacon-permissions
     container_name: beacon-permissions
     volumes:
