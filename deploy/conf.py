@@ -3,7 +3,7 @@
 #
 # Beacon general info
 #
-beacon_id   = 'org.ega-archive.beacon' # or org.ega-archive.beacon ?
+beacon_id   = 'beacon:5050' # or org.ega-archive.beacon ?
 beacon_name = 'Beacon Test Instance' # Name of the Beacon service
 api_version = 'v2.0.0-draft.3' # Version of the Beacon implementation
 
@@ -49,7 +49,7 @@ environment       = 'test' # Environment (production, development or testing/sta
 
 
 # GA4GH
-ga4gh_service_type_group = 'org.ga4gh'
+ga4gh_service_type_group = '2.0.0'
 ga4gh_service_type_artifact = 'beacon'
 ga4gh_service_type_version = '1.0'
 
