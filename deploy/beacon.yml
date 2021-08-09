@@ -23,6 +23,7 @@ services:
       - ./db/data.sql.gz:/docker-entrypoint-initdb.d/2.sql.gz
       - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
+      - beacon-priv
       - apps
 
   beacon:
@@ -39,6 +40,8 @@ services:
     ports:
       - "5050:5050"
     networks:
+      - beacon-priv
+      - pub
       - apps
     working_dir: '/beacon'
     entrypoint: ['python','-m','beacon']
@@ -57,6 +60,8 @@ services:
     ports:
       - "5051:5051"
     networks:
+      - beacon-priv
+      - pub
       - apps
     #entrypoint: ['/bin/sleep','100000000']
     working_dir: '/beacon'
@@ -90,6 +95,8 @@ services:
     ports:
       - "8080:8080"
     networks:
+      - pub
+      - idp-priv
       - apps
     depends_on:
       - idp-db
@@ -103,5 +110,6 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=secret
     networks:
+      - idp-priv
       - apps
 
