@@ -5,6 +5,8 @@ networks:
   beacon-priv:
   idp-priv:
   pub:
+  net_registry:
+  apps:
 
 services:
 
