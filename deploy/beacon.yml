@@ -28,6 +28,7 @@ services:
       - beacon-priv
       - beacon-network
       - beacon-network_apps
+      - apps
 
   beacon:
     build: ..
@@ -66,6 +67,7 @@ services:
     networks:
       - beacon-priv
       - pub
+      - apps
     #entrypoint: ['/bin/sleep','100000000']
     working_dir: '/beacon'
     entrypoint: ['python','-m', 'permissions']
