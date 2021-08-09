@@ -26,7 +26,7 @@ services:
 
   beacon:
     build: ..
-    image: egarchive/beacon:2.0
+    image: localhost:5000/beacon2.0:latest
     hostname: beacon
     container_name: beacon
     volumes:
