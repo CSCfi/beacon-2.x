@@ -48,6 +48,7 @@ services:
       - pub
       - beacon-network
       - beacon-network_apps
+      - apps
     working_dir: '/beacon'
     entrypoint: ['python','-m','beacon']
     # entrypoint: ['/bin/sleep','100000000']
