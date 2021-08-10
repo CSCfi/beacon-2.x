@@ -5,7 +5,8 @@ networks:
   beacon-priv:
   idp-priv:
   pub:
-  apps:
+  beacon-network_apps:
+    external: true
 
 services:
 
@@ -20,8 +21,6 @@ services:
     image: postgres:12-alpine
     volumes:
       - ./db/schema.sql:/docker-entrypoint-initdb.d/1.sql
-      - ./db/data.sql.gz:/docker-entrypoint-initdb.d/2.sql.gz
-      - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
       - beacon-priv
       - apps
@@ -39,10 +38,11 @@ services:
       - ./logger.yml:/beacon/beacon/logger.yml
     ports:
       - "5050:5050"
+    restart: always
     networks:
       - beacon-priv
       - pub
-      - apps
+      - beacon-network_apps
     working_dir: '/beacon'
     entrypoint: ['python','-m','beacon']
     # entrypoint: ['/bin/sleep','100000000']
@@ -62,7 +62,7 @@ services:
     networks:
       - beacon-priv
       - pub
-      - apps
+      - beacon-network_apps
     #entrypoint: ['/bin/sleep','100000000']
     working_dir: '/beacon'
     entrypoint: ['python','-m', 'permissions']
