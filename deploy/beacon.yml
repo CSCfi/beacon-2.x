@@ -21,6 +21,8 @@ services:
     image: postgres:12-alpine
     volumes:
       - ./db/schema.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./db/data.sql.gz:/docker-entrypoint-initdb.d/2.sql.gz
+      - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
       - beacon-priv
       - apps
