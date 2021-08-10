@@ -49,9 +49,9 @@ environment       = 'test' # Environment (production, development or testing/sta
 
 
 # GA4GH
-ga4gh_service_type_group = '2.0.0'
+ga4gh_service_type_group = 'org.ga4gh'
 ga4gh_service_type_artifact = 'beacon'
-ga4gh_service_type_version = '1.0'
+ga4gh_service_type_version = '2.0.0'
 
 
 # Beacon handovers
