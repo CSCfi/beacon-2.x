@@ -98,7 +98,6 @@ services:
     networks:
       - pub
       - idp-priv
-      - apps
     depends_on:
       - idp-db
 
@@ -112,5 +111,4 @@ services:
       - POSTGRES_PASSWORD=secret
     networks:
       - idp-priv
-      - apps
 
