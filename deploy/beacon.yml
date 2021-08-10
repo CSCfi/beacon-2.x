@@ -102,7 +102,7 @@ services:
       - idp-db
 
   idp-db:
-    image: postgres
+    image: postgres:12-alpine
     hostname: idp-db
     container_name: idp-db
     environment:
