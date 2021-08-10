@@ -25,7 +25,6 @@ services:
       - ./db/vacuum.sql.gz:/docker-entrypoint-initdb.d/3.sql.gz
     networks:
       - beacon-priv
-      - apps
 
   beacon:
     build: ..
